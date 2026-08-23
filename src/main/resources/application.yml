@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: url-shortener
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/url_shortener_db?createDatabaseIfNotExist=true
+    username: root
+    password: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      # 'update' auto-adjusts tables to match our Entity classes. Good for learning,
+      # NOT safe for real production (use Flyway/Liquibase migrations there instead).
+      ddl-auto: update
+    show-sql: true          # prints every SQL query Hibernate runs -- great for learning
+    properties:
+      hibernate:
+        format_sql: true    # pretty-prints the SQL in logs
+    open-in-view: false     # forces us to fetch data in the Service layer, not the view
